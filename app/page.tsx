@@ -60,8 +60,6 @@ export default function Home() {
   return (
     <>
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
-
         * {
             margin: 0;
             padding: 0;
@@ -69,7 +67,7 @@ export default function Home() {
         }
 
         body {
-            font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+            font-family: var(--font-archivo), 'Helvetica Neue', Arial, sans-serif;
             background: #0a0a0a;
             color: #e8e4dc;
             overflow-x: hidden;
@@ -121,7 +119,7 @@ export default function Home() {
             line-height: 0.95;
             margin-bottom: 25px;
             letter-spacing: 0.08em;
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: var(--font-bebas), sans-serif;
             text-transform: uppercase;
             color: #fff;
         }
@@ -132,7 +130,7 @@ export default function Home() {
             line-height: 1.15;
             margin-bottom: 25px;
             letter-spacing: 0.04em;
-            font-family: 'Oswald', sans-serif;
+            font-family: var(--font-oswald), sans-serif;
             text-transform: uppercase;
             color: #fff;
         }
@@ -141,7 +139,7 @@ export default function Home() {
             font-size: clamp(1.3rem, 2.5vw, 2rem);
             font-weight: 600;
             margin-bottom: 20px;
-            font-family: 'Oswald', sans-serif;
+            font-family: var(--font-oswald), sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.03em;
         }
@@ -177,7 +175,7 @@ export default function Home() {
             opacity: 0.7;
             margin-bottom: 40px;
             letter-spacing: 0.15em;
-            font-family: 'Oswald', sans-serif;
+            font-family: var(--font-oswald), sans-serif;
             text-transform: uppercase;
             color: #888;
         }
@@ -249,7 +247,7 @@ export default function Home() {
             font-weight: 700;
             color: var(--fight-gold);
             margin: 40px 0;
-            font-family: 'Bebas Neue', sans-serif;
+            font-family: var(--font-bebas), sans-serif;
             letter-spacing: 0.1em;
         }
 
@@ -395,7 +393,7 @@ export default function Home() {
             transition: all 0.25s ease;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            font-family: 'Oswald', sans-serif;
+            font-family: var(--font-oswald), sans-serif;
             border: 2px solid var(--boxing-red);
         }
 
@@ -414,7 +412,7 @@ export default function Home() {
             opacity: 0.35;
             animation: bounce 2s infinite;
             letter-spacing: 0.15em;
-            font-family: 'Oswald', sans-serif;
+            font-family: var(--font-oswald), sans-serif;
             text-transform: uppercase;
         }
 
@@ -532,7 +530,7 @@ export default function Home() {
             </div>
             <div style={{marginTop: '40px', padding: '40px', background: 'rgba(196, 30, 58, 0.06)', borderLeft: '6px solid var(--boxing-red)'}}>
               <p style={{fontSize: '1.6rem', lineHeight: 1.9, textAlign: 'left', fontWeight: 600}}>
-                <span style={{color: 'var(--fight-gold)', fontSize: '1.8rem', fontWeight: 700, fontFamily: "'Oswald', sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.03em'}}>This is the story of someone who transcends oppression.</span>
+                <span style={{color: 'var(--fight-gold)', fontSize: '1.8rem', fontWeight: 700, fontFamily: "var(--font-oswald), sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.03em'}}>This is the story of someone who transcends oppression.</span>
                 <br/><br/>
                 <span style={{color: 'rgba(232, 228, 220, 0.8)'}}>The industry tried to silence him for caring.</span>
                 <br/>
@@ -542,7 +540,7 @@ export default function Home() {
           </div>
 
           <div style={{marginTop: '60px', position: 'relative', padding: '60px 20px', background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.05)'}}>
-            <p style={{fontSize: '1.6rem', marginBottom: '50px', textAlign: 'center', fontWeight: 600, color: 'var(--fight-gold)', letterSpacing: '2px', fontFamily: "'Oswald', sans-serif", textTransform: 'uppercase' as const}}>
+            <p style={{fontSize: '1.6rem', marginBottom: '50px', textAlign: 'center', fontWeight: 600, color: 'var(--fight-gold)', letterSpacing: '2px', fontFamily: "var(--font-oswald), sans-serif", textTransform: 'uppercase' as const}}>
               The Journey • 인연
             </p>
 
@@ -701,7 +699,7 @@ export default function Home() {
 
           <div style={{marginTop: '60px', padding: '50px 30px', borderLeft: '4px solid var(--fight-gold)', background: 'rgba(212, 168, 67, 0.03)'}}>
             <p style={{fontSize: '1.6rem', textAlign: 'left', lineHeight: 1.9, fontWeight: 600}}>
-              <span style={{color: 'var(--fight-gold)', fontSize: '1.8rem', fontWeight: 700, fontFamily: "'Oswald', sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.02em'}}>Finding the familiar within the unfamiliar.</span>
+              <span style={{color: 'var(--fight-gold)', fontSize: '1.8rem', fontWeight: 700, fontFamily: "var(--font-oswald), sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.02em'}}>Finding the familiar within the unfamiliar.</span>
               <br/><br/>
               <span style={{color: '#b8b2a8'}}>Connecting cultures through a story of </span>
               <span style={{color: 'var(--fight-gold)'}}>honor</span>,
@@ -743,7 +741,7 @@ export default function Home() {
 
           <div style={{marginTop: '50px', padding: '40px', background: 'rgba(196, 30, 58, 0.04)', border: '2px solid var(--boxing-crimson)'}}>
             <p style={{fontSize: '1.6rem', lineHeight: 1.8, textAlign: 'center', fontWeight: 700}}>
-              <span style={{color: 'var(--fight-gold)', fontSize: '1.8rem', fontFamily: "'Oswald', sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.05em'}}>Let&apos;s create together</span>
+              <span style={{color: 'var(--fight-gold)', fontSize: '1.8rem', fontFamily: "var(--font-oswald), sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.05em'}}>Let&apos;s create together</span>
             </p>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginTop: '30px'}}>
               <div style={{textAlign: 'center', padding: '20px'}}>
@@ -774,7 +772,7 @@ export default function Home() {
           </p>
 
           <div style={{marginTop: '30px'}}>
-            <a href="https://instagram.com/giocabreraboxing" target="_blank" rel="noopener noreferrer" style={{color: 'var(--fight-gold)', textDecoration: 'none', fontSize: '1.1rem', fontFamily: "'Oswald', sans-serif", letterSpacing: '0.1em', textTransform: 'uppercase' as const, borderBottom: '1px solid var(--fight-gold)', paddingBottom: '2px', transition: 'opacity 0.25s ease', opacity: 0.8}}>@giocabreraboxing</a>
+            <a href="https://instagram.com/giocabreraboxing" target="_blank" rel="noopener noreferrer" style={{color: 'var(--fight-gold)', textDecoration: 'none', fontSize: '1.1rem', fontFamily: "var(--font-oswald), sans-serif", letterSpacing: '0.1em', textTransform: 'uppercase' as const, borderBottom: '1px solid var(--fight-gold)', paddingBottom: '2px', transition: 'opacity 0.25s ease', opacity: 0.8}}>@giocabreraboxing</a>
           </div>
 
           <div style={{marginTop: '40px'}}>
