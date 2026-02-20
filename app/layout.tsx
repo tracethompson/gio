@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Giovanni Cabrera",
-  description: "An Untold Original - World #9 Boxer, Actor, Comedian, Singer",
+  description: "An Untold Original - World #8 Boxer, Actor, Comedian, Singer",
   icons: {
     icon: '/favicon-gio.png',
   },

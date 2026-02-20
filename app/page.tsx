@@ -60,6 +60,8 @@ export default function Home() {
   return (
     <>
       <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Bebas+Neue&family=Oswald:wght@400;500;600;700&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -67,22 +69,33 @@ export default function Home() {
         }
 
         body {
-            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-            background: #000;
-            color: #fff;
+            font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #e8e4dc;
             overflow-x: hidden;
             line-height: 1.6;
         }
 
-        /* Brand Colors - CJ ENM Inspired */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #C41E3A;
+            z-index: 10000;
+        }
+
         :root {
-            --cj-magenta: #FF0084;
-            --cj-pink: #FF1493;
-            --cj-electric-blue: #00D9FF;
-            --cj-cyan: #00BFFF;
-            --cj-purple: #9D00FF;
-            --cj-orange: #FF6B35;
-            --cj-gold: #FFD700;
+            --boxing-red: #C41E3A;
+            --boxing-crimson: #9B1B30;
+            --boxing-dark-red: #6B0F1A;
+            --fight-gold: #D4A843;
+            --championship-gold: #FFD700;
+            --steel: #5a6068;
+            --charcoal: #1a1a1a;
+            --concrete: #242424;
         }
 
         .section {
@@ -103,80 +116,80 @@ export default function Home() {
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            letter-spacing: 0.02em;
-            font-family: 'Bebas Neue', 'Oswald', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 8rem);
+            font-weight: 400;
+            line-height: 0.95;
+            margin-bottom: 25px;
+            letter-spacing: 0.08em;
+            font-family: 'Bebas Neue', sans-serif;
             text-transform: uppercase;
+            color: #fff;
         }
 
         h2 {
             font-size: clamp(2rem, 4vw, 3.5rem);
             font-weight: 600;
-            line-height: 1.2;
+            line-height: 1.15;
             margin-bottom: 25px;
-            letter-spacing: 0.01em;
+            letter-spacing: 0.04em;
             font-family: 'Oswald', sans-serif;
             text-transform: uppercase;
+            color: #fff;
         }
 
         h3 {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
             font-weight: 600;
             margin-bottom: 20px;
-            font-family: 'Oswald', 'Inter', sans-serif;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
         }
 
         p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            line-height: 1.7;
+            font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+            line-height: 1.75;
             margin-bottom: 20px;
-            font-weight: 300;
+            font-weight: 400;
+            color: #b8b2a8;
         }
 
         .highlight {
-            color: var(--cj-magenta);
-            font-weight: 600;
-        }
-
-        .cj-red {
-            color: var(--cj-red);
+            color: var(--boxing-red);
+            font-weight: 700;
         }
 
         .gold {
-            color: var(--cj-orange);
+            color: var(--fight-gold);
         }
 
         .kdh-blue {
-            color: var(--kdh-electric-blue);
+            color: var(--fight-gold);
         }
 
         .kdh-purple {
-            color: var(--cj-magenta);
-        }
-
-        .neon-accent {
-            color: var(--kdh-neon-green);
+            color: var(--boxing-red);
         }
 
         .subtitle {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            font-weight: 300;
-            opacity: 0.9;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 400;
+            opacity: 0.7;
             margin-bottom: 40px;
-            letter-spacing: 0.02em;
+            letter-spacing: 0.15em;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+            color: #888;
         }
 
         /* Hero Section */
         #hero {
-            background: linear-gradient(135deg, #000 0%, #1a0033 50%, #2d0a4d 100%);
+            background: #080808;
             text-align: center;
         }
 
         #hero h1 {
-            margin-bottom: 20px;
+            margin-bottom: 0;
             animation: fadeInUp 1s ease-out;
         }
 
@@ -185,141 +198,84 @@ export default function Home() {
         }
 
         .hero-tagline {
-            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-size: clamp(0.95rem, 1.6vw, 1.15rem);
             font-weight: 400;
-            opacity: 0.7;
+            opacity: 0.45;
             margin-top: 30px;
             animation: fadeInUp 1.4s ease-out;
+            font-style: italic;
+            letter-spacing: 0.03em;
         }
 
         /* The Story Section */
         #story {
-            background: linear-gradient(to bottom, #000 0%, #0a0a0a 100%);
+            background: #0c0c0c;
         }
 
         .story-grid {
             display: grid;
-            gap: 40px;
+            gap: 30px;
             margin-top: 50px;
         }
 
         .story-card {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.02);
             padding: 40px;
-            border-radius: 12px;
-            border-left: 4px solid var(--kdh-electric-blue);
-            backdrop-filter: blur(10px);
+            border-radius: 0;
+            border-left: 4px solid var(--boxing-red);
         }
 
         .story-card h3 {
-            color: var(--kdh-electric-blue);
-            margin-bottom: 15px;
-        }
-
-        /* Humanitarian Section */
-        #humanitarian {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #2d0a4d 100%);
-        }
-
-        .quote-box {
-            background: rgba(157, 0, 255, 0.15);
-            border-left: 6px solid var(--cj-magenta);
-            padding: 40px;
-            margin: 40px 0;
-            border-radius: 8px;
-            font-style: italic;
-            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
-            line-height: 1.8;
-        }
-
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .impact-item {
-            text-align: center;
-            padding: 30px;
-            background: rgba(255,255,255,0.02);
-            border-radius: 10px;
-        }
-
-        .impact-item h3 {
-            color: var(--kdh-electric-blue);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-
-        /* The Resilience Section */
-        #resilience {
-            background: linear-gradient(to bottom, #000 0%, #0a0a0a 100%);
-        }
-
-        .resilience-points {
-            display: grid;
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .resilience-card {
-            background: rgba(157, 0, 255, 0.1);
-            padding: 35px;
-            border-radius: 10px;
-            border-left: 4px solid var(--cj-magenta);
-        }
-
-        .resilience-card h3 {
-            color: var(--cj-magenta);
+            color: var(--fight-gold);
             margin-bottom: 15px;
         }
 
         /* Seoul Section */
         #seoul {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #2d0a4d 100%);
+            background: #080808;
             text-align: center;
         }
 
         .seoul-highlight {
-            background: rgba(31, 142, 241, 0.1);
+            background: rgba(196, 30, 58, 0.05);
             padding: 50px;
-            border-radius: 15px;
+            border-radius: 0;
             margin: 40px 0;
-            border: 2px solid var(--kdh-electric-blue);
+            border: 2px solid var(--boxing-red);
         }
 
         .countdown {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.6rem, 3vw, 2.5rem);
             font-weight: 700;
-            color: var(--cj-orange);
+            color: var(--fight-gold);
             margin: 40px 0;
             font-family: 'Bebas Neue', sans-serif;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
         }
 
         /* Talent Section */
         #talent {
-            background: linear-gradient(to bottom, #000 0%, #0a0a0a 100%);
+            background: #0c0c0c;
         }
 
         .talent-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 35px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
             margin-top: 50px;
         }
 
         .talent-card {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.02);
             padding: 35px;
-            border-radius: 12px;
-            border-top: 3px solid var(--kdh-electric-blue);
+            border-radius: 0;
+            border-top: 3px solid var(--boxing-red);
         }
 
         .talent-card h3 {
-            color: var(--kdh-electric-blue);
+            color: var(--fight-gold);
             margin-bottom: 20px;
+            font-size: 1.2rem;
         }
 
         .talent-card ul {
@@ -329,64 +285,40 @@ export default function Home() {
 
         .talent-card ul li {
             padding: 8px 0;
-            padding-left: 25px;
+            padding-left: 22px;
             position: relative;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
+            color: #b8b2a8;
         }
 
         .talent-card ul li:before {
-            content: "▸";
+            content: "—";
             position: absolute;
             left: 0;
-            color: var(--kdh-electric-blue);
-        }
-
-        /* Values Section */
-        #values {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #2d0a4d 100%);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .value-card {
-            text-align: center;
-            padding: 40px 30px;
-            background: rgba(157, 0, 255, 0.1);
-            border-radius: 12px;
-            border: 1px solid rgba(157, 0, 255, 0.3);
-        }
-
-        .value-card h3 {
-            color: var(--cj-magenta);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
+            color: var(--boxing-red);
+            font-weight: 700;
         }
 
         /* Opportunity Section */
         #opportunity {
-            background: linear-gradient(to bottom, #000 0%, #0a0a0a 100%);
+            background: #080808;
         }
 
         .opportunity-tiers {
             display: grid;
-            gap: 40px;
+            gap: 30px;
             margin-top: 50px;
         }
 
         .tier {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.02);
             padding: 40px;
-            border-radius: 12px;
-            border-left: 4px solid var(--cj-orange);
+            border-radius: 0;
+            border-left: 4px solid var(--fight-gold);
         }
 
         .tier h3 {
-            color: var(--cj-orange);
+            color: var(--fight-gold);
             margin-bottom: 20px;
         }
 
@@ -397,75 +329,32 @@ export default function Home() {
 
         .tier ul li {
             padding: 10px 0;
-            padding-left: 30px;
+            padding-left: 25px;
             position: relative;
-            font-size: 1.15rem;
-            line-height: 1.6;
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: #b8b2a8;
         }
 
         .tier ul li:before {
             content: "●";
             position: absolute;
             left: 0;
-            color: var(--cj-orange);
-            font-size: 1.5rem;
-        }
-
-        /* Parallel Section */
-        #parallel {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #2d0a4d 100%);
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .comparison-card {
-            padding: 40px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.03);
-        }
-
-        .comparison-card.kdh {
-            border: 2px solid var(--cj-magenta);
-        }
-
-        .comparison-card.kdh h3 {
-            color: var(--cj-magenta);
-        }
-
-        .comparison-card.gio {
-            border: 2px solid var(--kdh-electric-blue);
-        }
-
-        .comparison-card.gio h3 {
-            color: var(--kdh-electric-blue);
-        }
-
-        .parallel-points {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .parallel-points li {
-            padding: 12px 0;
-            font-size: 1.15rem;
-            line-height: 1.6;
+            color: var(--fight-gold);
+            font-size: 0.6rem;
+            top: 16px;
         }
 
         /* Partnership Section */
         #partnership {
-            background: linear-gradient(to bottom, #000 0%, #0a0a0a 100%);
+            background: #0c0c0c;
         }
 
         .partnership-box {
-            background: rgba(31, 142, 241, 0.1);
+            background: rgba(196, 30, 58, 0.04);
             padding: 50px;
-            border-radius: 15px;
-            border: 2px solid var(--kdh-electric-blue);
+            border-radius: 0;
+            border: 2px solid var(--boxing-crimson);
             margin-top: 50px;
         }
 
@@ -475,46 +364,44 @@ export default function Home() {
         }
 
         .partnership-box ul li {
-            padding: 15px 0;
-            padding-left: 35px;
+            padding: 12px 0;
+            padding-left: 30px;
             position: relative;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.7;
+            color: #b8b2a8;
         }
 
         .partnership-box ul li:before {
             content: "→";
             position: absolute;
             left: 0;
-            color: var(--kdh-electric-blue);
-            font-size: 1.5rem;
+            color: var(--boxing-red);
+            font-size: 1.2rem;
             font-weight: bold;
         }
 
-        /* Closing Section */
-        #closing {
-            background: linear-gradient(135deg, #000 0%, #1a0033 50%, #2d0a4d 100%);
-            text-align: center;
-        }
-
+        /* CTA */
         .cta {
             display: inline-block;
-            padding: 20px 50px;
-            background: var(--cj-orange);
-            color: #000;
+            padding: 18px 50px;
+            background: var(--boxing-red);
+            color: #fff;
             text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 700;
-            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 0;
             margin-top: 40px;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.12em;
+            font-family: 'Oswald', sans-serif;
+            border: 2px solid var(--boxing-red);
         }
 
         .cta:hover {
-            background: #fff;
-            transform: scale(1.05);
+            background: transparent;
+            color: var(--boxing-red);
         }
 
         /* Scroll Indicator */
@@ -523,9 +410,12 @@ export default function Home() {
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 0.9rem;
-            opacity: 0.6;
+            font-size: 0.8rem;
+            opacity: 0.35;
             animation: bounce 2s infinite;
+            letter-spacing: 0.15em;
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
         }
 
         @keyframes fadeInUp {
@@ -557,8 +447,12 @@ export default function Home() {
                 padding: 40px 20px;
             }
 
-            .comparison-grid {
-                grid-template-columns: 1fr;
+            .seoul-highlight {
+                padding: 30px 20px;
+            }
+
+            .partnership-box {
+                padding: 30px 20px;
             }
 
             .tier ul li,
@@ -570,12 +464,14 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section id="hero" className="section" style={{position: 'relative'}}>
-        <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'url("giotop.png")', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.2, pointerEvents: 'none'}}></div>
+        <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'url("giotop.png")', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.15, pointerEvents: 'none'}}></div>
+        <div style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: '200px', background: 'linear-gradient(to top, #080808, transparent)', pointerEvents: 'none'}}></div>
         <div className="container">
           <h1>Giovanni Cabrera</h1>
+          <div style={{width: '80px', height: '4px', background: 'var(--boxing-red)', margin: '0 auto 30px'}}></div>
           <p className="subtitle">An <span className="highlight">Untold Original</span></p>
-          <p style={{fontSize: '1.5rem', maxWidth: '800px', margin: '0 auto'}}>
-            World #9 Boxer • Actor • Comedian • Singer
+          <p style={{fontSize: '1.3rem', maxWidth: '800px', margin: '0 auto', color: '#999', letterSpacing: '0.05em'}}>
+            World #8 Boxer • Actor • Comedian • Singer
           </p>
           <p className="hero-tagline">
             A fighter who chooses values over everything.
@@ -586,8 +482,8 @@ export default function Home() {
 
       {/* THE STORY */}
       <section id="story" className="section" style={{position: 'relative', overflow: 'hidden'}}>
-        <div style={{position: 'absolute', top: '-100px', right: '-100px', width: '400px', height: '400px', background: 'linear-gradient(135deg, rgba(157, 0, 255, 0.1) 0%, transparent 70%)', transform: 'rotate(45deg)', pointerEvents: 'none'}}></div>
-        <div style={{position: 'absolute', bottom: '-50px', left: '-50px', width: '300px', height: '300px', border: '2px solid rgba(31, 142, 241, 0.15)', transform: 'rotate(15deg)', pointerEvents: 'none'}}></div>
+        <div style={{position: 'absolute', top: 0, right: 0, width: '300px', height: '100%', background: 'linear-gradient(to left, rgba(196, 30, 58, 0.03), transparent)', pointerEvents: 'none'}}></div>
+        <div style={{position: 'absolute', bottom: '-50px', left: '-50px', width: '300px', height: '300px', border: '2px solid rgba(196, 30, 58, 0.08)', transform: 'rotate(15deg)', pointerEvents: 'none'}}></div>
         <div className="container">
           <h2>Where <span className="kdh-blue">Boxing</span> Meets <span className="kdh-purple">Storytelling</span></h2>
           <p className="subtitle">When values transcend boundaries, new possibilities emerge</p>
@@ -596,8 +492,8 @@ export default function Home() {
             <div className="story-card fade-in">
               <h3>The Bridge</h3>
               <p>When Giovanni stood up for his community during ICE raids, speaking out against injustice, the Los Angeles boxing establishment responded harshly.</p>
-              <p>Gyms refused him entry. Trainers wouldn&apos;t work with him. His career was threatened for standing up.</p>
-              <p>Just when the industry tried to silence him, South Korea offered him a two-fight WBA contract. The timing was in-yeon. He&apos;s grateful for the opportunity and is training for January 24, 2026. Fighting with honor for his community and his values.</p>
+              <p>Gyms refused him entry. Trainers wouldn&apos;t work with him. His career was threatened for standing out.</p>
+              <p>Just when the industry tried to silence him, South Korea offered him a WBA title fight. The timing was in-yeon. He&apos;s grateful for the opportunity and is training for April 5, 2026. Fighting with honor for his community and his values.</p>
             </div>
 
             <div className="story-card fade-in">
@@ -609,8 +505,8 @@ export default function Home() {
 
             <div className="story-card fade-in">
               <h3>The Artist</h3>
-              <p>Actor • Standup Comedian • Singer/Songwriter</p>
-              <p>Featured in multiple award winning shorts. Performing standup at iconic Hollywood venues including The Comedy Store, The Laugh Factory, and other legendary stages.</p>
+              <p>Actor • Comedian • Singer/Songwriter</p>
+              <p>Featured in multiple award winning shorts. Performing standup at iconic Hollywood venues.</p>
               <p>As a singer and songwriter, Giovanni creates music with emotional lyrics and timeless lyrical themes, perfect for collaboration with K-pop producers. His authentic storytelling through music resonates with themes of perseverance, loyalty, and overcoming adversity.</p>
             </div>
           </div>
@@ -619,14 +515,13 @@ export default function Home() {
 
       {/* SEOUL SHOWDOWN */}
       <section id="seoul" className="section" style={{position: 'relative', overflow: 'hidden'}}>
-        <div style={{position: 'absolute', bottom: 0, left: 0, width: '100%', height: '150px', background: 'linear-gradient(to top, rgba(157, 0, 255, 0.05) 0%, transparent 100%)', pointerEvents: 'none'}}></div>
-        <div style={{position: 'absolute', top: '20%', right: '50px', width: '60px', height: '200px', background: 'linear-gradient(to bottom, rgba(31, 142, 241, 0.1), rgba(31, 142, 241, 0.02))', clipPath: 'polygon(0 0, 100% 20%, 100% 100%, 0 80%)', pointerEvents: 'none'}}></div>
+        <div style={{position: 'absolute', bottom: 0, left: 0, width: '100%', height: '150px', background: 'linear-gradient(to top, rgba(196, 30, 58, 0.03) 0%, transparent 100%)', pointerEvents: 'none'}}></div>
         <div className="container">
-          <h2>January 24, 2026</h2>
+          <h2>April 5, 2026</h2>
           <p className="subtitle">The Seoul Showdown</p>
 
           <div className="seoul-highlight">
-            <p style={{fontSize: '1.5rem', lineHeight: 1.9}}>
+            <p style={{fontSize: '1.4rem', lineHeight: 1.9, color: '#c8c2b8'}}>
               Giovanni is grateful to South Korea for welcoming him when others turned away.
               He&apos;s honored to have the opportunity to fight for a WBA title in Seoul.
             </p>
@@ -635,78 +530,78 @@ export default function Home() {
               Seoul, South Korea • vs. Siro Choi<br/>
               61.23 KG Lightweight Division
             </div>
-            <div style={{marginTop: '40px', padding: '40px', background: 'linear-gradient(135deg, rgba(255, 0, 132, 0.15), rgba(0, 217, 255, 0.15))', borderRadius: '20px', border: '2px solid rgba(255, 0, 132, 0.4)', boxShadow: '0 0 40px rgba(255, 0, 132, 0.3)'}}>
-              <p style={{fontSize: '1.8rem', lineHeight: 1.9, textAlign: 'center', fontWeight: 600}}>
-                <span style={{background: 'linear-gradient(120deg, var(--cj-magenta), var(--cj-electric-blue))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontSize: '2rem', fontWeight: 700}}>This is the story of someone who transcends oppression.</span>
+            <div style={{marginTop: '40px', padding: '40px', background: 'rgba(196, 30, 58, 0.06)', borderLeft: '6px solid var(--boxing-red)'}}>
+              <p style={{fontSize: '1.6rem', lineHeight: 1.9, textAlign: 'left', fontWeight: 600}}>
+                <span style={{color: 'var(--fight-gold)', fontSize: '1.8rem', fontWeight: 700, fontFamily: "'Oswald', sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.03em'}}>This is the story of someone who transcends oppression.</span>
                 <br/><br/>
-                <span style={{color: 'rgba(255, 255, 255, 0.9)'}}>The industry tried to silence him for caring.</span>
+                <span style={{color: 'rgba(232, 228, 220, 0.8)'}}>The industry tried to silence him for caring.</span>
                 <br/>
-                <span style={{color: 'var(--cj-electric-blue)', textShadow: '0 0 20px rgba(0, 217, 255, 0.5)', fontSize: '1.9rem', fontWeight: 700}}>He&apos;s answering them in Seoul on the world stage.</span>
+                <span style={{color: 'var(--boxing-red)', fontSize: '1.7rem', fontWeight: 700}}>He&apos;s answering them in Seoul on the world stage.</span>
               </p>
             </div>
           </div>
 
-          <div style={{marginTop: '60px', position: 'relative', padding: '60px 20px', background: 'linear-gradient(to bottom, rgba(10, 10, 10, 0.5), rgba(26, 0, 51, 0.3))', borderRadius: '20px'}}>
-            <p style={{fontSize: '1.8rem', marginBottom: '50px', textAlign: 'center', fontWeight: 600, color: 'var(--cj-orange)', letterSpacing: '2px'}}>
+          <div style={{marginTop: '60px', position: 'relative', padding: '60px 20px', background: 'rgba(255,255,255,0.015)', border: '1px solid rgba(255,255,255,0.05)'}}>
+            <p style={{fontSize: '1.6rem', marginBottom: '50px', textAlign: 'center', fontWeight: 600, color: 'var(--fight-gold)', letterSpacing: '2px', fontFamily: "'Oswald', sans-serif", textTransform: 'uppercase' as const}}>
               The Journey • 인연
             </p>
 
-            <div style={{position: 'absolute', top: '180px', left: '5%', right: '5%', height: '2px', background: 'linear-gradient(to right, var(--cj-magenta) 0%, var(--cj-orange) 50%, var(--cj-electric-blue) 100%)', opacity: 0.3}}></div>
+            <div style={{position: 'absolute', top: '180px', left: '5%', right: '5%', height: '2px', background: 'linear-gradient(to right, var(--boxing-red) 0%, var(--boxing-crimson) 50%, var(--fight-gold) 100%)', opacity: 0.3}}></div>
 
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '30px', position: 'relative', zIndex: 1}}>
               {/* Stage 1: Standing Up */}
               <div style={{textAlign: 'center'}}>
                 <div style={{position: 'relative', width: '100px', height: '100px', margin: '0 auto 20px'}}>
-                  <div style={{width: '100%', height: '100%', border: '3px solid var(--cj-pink)', borderRadius: '50%', position: 'relative', overflow: 'hidden'}}>
-                    <div style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: '60%', background: 'linear-gradient(to top, var(--cj-pink), transparent)'}}></div>
+                  <div style={{width: '100%', height: '100%', border: '3px solid var(--boxing-red)', borderRadius: '50%', position: 'relative', overflow: 'hidden'}}>
+                    <div style={{position: 'absolute', bottom: 0, left: 0, right: 0, height: '60%', background: 'linear-gradient(to top, var(--boxing-red), transparent)'}}></div>
                   </div>
-                  <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '40px', height: '40px', background: 'var(--cj-pink)', clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
+                  <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '40px', height: '40px', background: 'var(--boxing-red)', clipPath: 'polygon(50% 0%, 0% 100%, 100% 100%)'}}></div>
                 </div>
-                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--cj-pink)'}}>Standing Up</p>
+                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--boxing-red)'}}>Standing Up</p>
               </div>
 
               {/* Stage 2: Oppression */}
               <div style={{textAlign: 'center'}}>
                 <div style={{position: 'relative', width: '100px', height: '100px', margin: '0 auto 20px'}}>
-                  <div style={{width: '100%', height: '100%', border: '3px solid var(--cj-orange)', position: 'relative'}}>
-                    <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(229, 57, 53, 0.3) 10px, rgba(229, 57, 53, 0.3) 20px)'}}></div>
+                  <div style={{width: '100%', height: '100%', border: '3px solid var(--steel)', position: 'relative'}}>
+                    <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(90, 96, 104, 0.3) 10px, rgba(90, 96, 104, 0.3) 20px)'}}></div>
                   </div>
-                  <div style={{position: 'absolute', top: '50%', left: 0, right: 0, height: '3px', background: 'var(--cj-orange)'}}></div>
+                  <div style={{position: 'absolute', top: '50%', left: 0, right: 0, height: '3px', background: 'var(--steel)'}}></div>
                 </div>
-                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--cj-orange)'}}>Oppression</p>
+                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--steel)'}}>Oppression</p>
               </div>
 
               {/* Stage 3: Refusal */}
               <div style={{textAlign: 'center'}}>
                 <div style={{position: 'relative', width: '100px', height: '100px', margin: '0 auto 20px'}}>
-                  <div style={{width: '100%', height: '100%', border: '3px solid var(--cj-orange)', transform: 'rotate(45deg)', position: 'relative'}}>
-                    <div style={{position: 'absolute', top: '50%', left: '50%', width: '60%', height: '60%', background: 'var(--cj-orange)', transform: 'translate(-50%, -50%)'}}></div>
+                  <div style={{width: '100%', height: '100%', border: '3px solid var(--boxing-crimson)', transform: 'rotate(45deg)', position: 'relative'}}>
+                    <div style={{position: 'absolute', top: '50%', left: '50%', width: '60%', height: '60%', background: 'var(--boxing-crimson)', transform: 'translate(-50%, -50%)'}}></div>
                   </div>
-                  <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '30px', height: '30px', border: '3px solid var(--cj-orange)', borderRadius: '50%', background: 'rgba(243, 156, 18, 0.2)'}}></div>
+                  <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '30px', height: '30px', border: '3px solid var(--boxing-crimson)', borderRadius: '50%', background: 'rgba(155, 27, 48, 0.2)'}}></div>
                 </div>
-                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--cj-orange)'}}>Refusal</p>
+                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--boxing-crimson)'}}>Refusal</p>
               </div>
 
               {/* Stage 4: New Path (In-yeon) */}
               <div style={{textAlign: 'center'}}>
                 <div style={{position: 'relative', width: '100px', height: '100px', margin: '0 auto 20px'}}>
-                  <div style={{width: '100%', height: '100%', border: '3px solid var(--cj-electric-blue)', borderRadius: '50%', position: 'relative'}}>
-                    <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '2.5rem', fontWeight: 700, color: 'var(--cj-electric-blue)', opacity: 0.8}}>인연</div>
+                  <div style={{width: '100%', height: '100%', border: '3px solid var(--fight-gold)', borderRadius: '50%', position: 'relative'}}>
+                    <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '2.5rem', fontWeight: 700, color: 'var(--fight-gold)', opacity: 0.8}}>인연</div>
                   </div>
-                  <div style={{position: 'absolute', top: '-5px', right: '-5px', width: '20px', height: '20px', background: 'var(--cj-electric-blue)', borderRadius: '50%', boxShadow: '0 0 15px var(--cj-electric-blue)'}}></div>
+                  <div style={{position: 'absolute', top: '-5px', right: '-5px', width: '20px', height: '20px', background: 'var(--fight-gold)', borderRadius: '50%'}}></div>
                 </div>
-                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--cj-electric-blue)'}}>New Path</p>
+                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--fight-gold)'}}>New Path</p>
               </div>
 
               {/* Stage 5: WBA Title Fight */}
               <div style={{textAlign: 'center'}}>
                 <div style={{position: 'relative', width: '100px', height: '100px', margin: '0 auto 20px'}}>
                   <div style={{width: '100%', height: '100%', position: 'relative'}}>
-                    <div style={{width: '100%', height: '100%', background: 'linear-gradient(135deg, var(--cj-gold), #FFD700, var(--cj-gold))', clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)', boxShadow: '0 0 30px rgba(255, 215, 0, 0.8), 0 0 60px rgba(255, 215, 0, 0.4)'}}></div>
-                    <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '2rem', fontWeight: 900, color: '#000', textShadow: '0 0 10px rgba(255, 255, 255, 0.5)'}}>1.24</div>
+                    <div style={{width: '100%', height: '100%', background: 'linear-gradient(135deg, var(--championship-gold), #FFD700, var(--championship-gold))', clipPath: 'polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%)'}}></div>
+                    <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '2rem', fontWeight: 900, color: '#000'}}>4.5</div>
                   </div>
                 </div>
-                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--cj-gold)', textShadow: '0 0 10px rgba(255, 215, 0, 0.3)'}}>WBA Title Fight</p>
+                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--championship-gold)'}}>4.5 WBA Title Fight</p>
               </div>
             </div>
           </div>
@@ -732,8 +627,7 @@ export default function Home() {
             <div className="talent-card">
               <h3>Comedy & Performance</h3>
               <ul>
-                <li>Standup Comedian performing at iconic Hollywood clubs</li>
-                <li>Cross cultural appeal (US/Korea/Latin America)</li>
+                <li>Cross cultural appeal across US, Korea, and Latin America</li>
                 <li>Natural stage presence and timing</li>
               </ul>
             </div>
@@ -763,8 +657,7 @@ export default function Home() {
 
       {/* THE OPPORTUNITY */}
       <section id="opportunity" className="section" style={{position: 'relative', overflow: 'hidden'}}>
-        <div style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '200px', background: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, transparent 100%)', clipPath: 'polygon(0 0, 100% 0, 100% 50%, 0 80%)', pointerEvents: 'none'}}></div>
-        <div style={{position: 'absolute', bottom: '100px', right: 0, width: '250px', height: '250px', borderLeft: '3px solid rgba(243, 156, 18, 0.2)', borderBottom: '3px solid rgba(243, 156, 18, 0.2)', pointerEvents: 'none'}}></div>
+        <div style={{position: 'absolute', bottom: '100px', right: 0, width: '250px', height: '250px', borderLeft: '3px solid rgba(212, 168, 67, 0.1)', borderBottom: '3px solid rgba(212, 168, 67, 0.1)', pointerEvents: 'none'}}></div>
         <div className="container">
           <h2>The <span className="gold">Opportunity</span></h2>
 
@@ -777,15 +670,15 @@ export default function Home() {
                 <li><strong>Cultural Exchange Series:</strong> &quot;Giovanni&apos;s Seoul Journey&quot; - following a Mexican American fighter adapting to Korean life, learning the language, training in Seoul gyms, discovering Korean food and customs</li>
                 <li><strong>Celebrity Challenge Shows:</strong> Korean variety formats where Giovanni teaches boxing to Korean celebrities or participates in comedy challenges, music performances, and cultural missions</li>
                 <li><strong>Music & Performance Programs:</strong> Guest appearances on Korean music shows performing original songs, collaborating with Korean artists, blending Latin rhythms with K-pop production</li>
-                <li><strong>Comedy & Entertainment Formats:</strong> Panel shows, talk shows, and variety programs where Giovanni brings humor, storytelling, and unique perspective as a Latino boxer in Seoul</li>
+                <li><strong>Entertainment Formats:</strong> Panel shows, talk shows, and variety programs where Giovanni brings humor, storytelling, and unique perspective as a Latino boxer in Seoul</li>
               </ul>
             </div>
 
             <div className="tier">
-              <h3>Scripted & Documentary</h3>
+              <h3>Unscripted & Documentary</h3>
               <p>Universal themes told through cultural bridges:</p>
               <ul>
-                <li><strong>Reality Series:</strong> Following a Mexican American professional fighter finding a new home in Seoul, navigating language, culture, and training for a championship fight</li>
+                <li><strong>Unscripted Series:</strong> Following a Mexican American professional fighter finding a new home in Seoul, navigating language, culture, and training for a championship fight</li>
                 <li><strong>Feature Documentary:</strong> Honor and perseverance across cultures, when one country welcomes what another rejected</li>
                 <li><strong>Dramatic Series:</strong> The human story of standing up, facing consequences, finding acceptance abroad</li>
                 <li><strong>Music Documentary:</strong> Giovanni&apos;s songwriting journey blending Korean, American, and Latin musical traditions</li>
@@ -797,7 +690,7 @@ export default function Home() {
               <h3>Cultural Brand Collaborations</h3>
               <p>Partnerships that connect communities:</p>
               <ul>
-                <li>Korean entertainment and music brands partnering with a multiplatform artist (boxer, comedian, actor, singer/songwriter)</li>
+                <li>Korean entertainment and music brands partnering with a multiplatform artist — boxer, comedian, actor, singer/songwriter</li>
                 <li>Korean brands reaching US and Latin American audiences through authentic cultural storytelling</li>
                 <li>Athletic and lifestyle brands celebrating cross cultural perseverance</li>
                 <li>Music collaborations between Korean, Latin, and American artists</li>
@@ -806,14 +699,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div style={{marginTop: '60px', padding: '50px 30px', background: 'radial-gradient(circle at center, rgba(255, 0, 132, 0.15), transparent 70%)', borderRadius: '20px'}}>
-            <p style={{fontSize: '1.8rem', textAlign: 'center', lineHeight: 1.9, fontWeight: 600}}>
-              <span style={{background: 'linear-gradient(120deg, var(--cj-magenta), var(--cj-electric-blue))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontSize: '2rem', fontWeight: 700}}>Finding the familiar within the unfamiliar.</span>
+          <div style={{marginTop: '60px', padding: '50px 30px', borderLeft: '4px solid var(--fight-gold)', background: 'rgba(212, 168, 67, 0.03)'}}>
+            <p style={{fontSize: '1.6rem', textAlign: 'left', lineHeight: 1.9, fontWeight: 600}}>
+              <span style={{color: 'var(--fight-gold)', fontSize: '1.8rem', fontWeight: 700, fontFamily: "'Oswald', sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.02em'}}>Finding the familiar within the unfamiliar.</span>
               <br/><br/>
-              <span style={{color: 'var(--cj-electric-blue)', textShadow: '0 0 20px rgba(0, 217, 255, 0.3)'}}>Connecting cultures through a story of </span>
-              <span style={{color: 'var(--cj-gold)', textShadow: '0 0 20px rgba(255, 215, 0, 0.3)'}}>honor</span>,
-              <span style={{color: 'var(--cj-magenta)', textShadow: '0 0 20px rgba(255, 0, 132, 0.3)'}}> loyalty</span>, and
-              <span style={{color: 'var(--cj-orange)', textShadow: '0 0 20px rgba(255, 107, 53, 0.3)'}}> standing up for what truly matters</span>.
+              <span style={{color: '#b8b2a8'}}>Connecting cultures through a story of </span>
+              <span style={{color: 'var(--fight-gold)'}}>honor</span>,
+              <span style={{color: 'var(--boxing-red)'}}> loyalty</span>, and
+              <span style={{color: '#e8e4dc'}}> standing up for what truly matters</span>.
             </p>
           </div>
         </div>
@@ -821,12 +714,12 @@ export default function Home() {
 
       {/* PARTNERSHIP VISION */}
       <section id="partnership" className="section" style={{position: 'relative', overflow: 'hidden'}}>
-        <div style={{position: 'absolute', left: 0, top: '30%', width: '80px', height: '40%', background: 'linear-gradient(to right, rgba(157, 0, 255, 0.15) 0%, rgba(157, 0, 255, 0.08) 50%, transparent 100%)', clipPath: 'polygon(0 0, 100% 10%, 100% 90%, 0 100%)', pointerEvents: 'none'}}></div>
+        <div style={{position: 'absolute', left: 0, top: '30%', width: '80px', height: '40%', background: 'linear-gradient(to right, rgba(196, 30, 58, 0.08) 0%, transparent 100%)', pointerEvents: 'none'}}></div>
         <div className="container">
           <h2>The <span className="kdh-blue">Collaboration</span></h2>
           <p className="subtitle">Building Empathy Across Borders</p>
 
-          <p style={{fontSize: '1.5rem', lineHeight: 1.9, marginBottom: '50px'}}>
+          <p style={{fontSize: '1.35rem', lineHeight: 1.9, marginBottom: '50px', color: '#b8b2a8'}}>
             Giovanni represents something rare: a bridge between worlds. A Mexican American athlete going to Seoul
             for the opportunity of a lifetime. The power of empathy transcends boundaries, expanding overlooked perspectives
             into endless possibilities. A fighter who acts. A comedian who competes. <span className="highlight">Someone who refuses
@@ -834,37 +727,36 @@ export default function Home() {
           </p>
 
           <div className="partnership-box">
-            <h3 style={{color: 'var(--cj-orange)', marginBottom: '30px'}}>Seeking Partners Who Think Beyond Boundaries:</h3>
+            <h3 style={{color: 'var(--fight-gold)', marginBottom: '30px'}}>Seeking Partners Who Think Beyond Boundaries:</h3>
             <ul>
               <li>Korean brands ready to connect with US and Latin American markets through authentic storytelling</li>
               <li>Artists and creatives who see sport as culture, and culture as universal language</li>
               <li>Filmmakers and content creators exploring cross cultural narratives</li>
-              <li>Fashion and lifestyle collaborators interested in the athlete entertainer space</li>
+              <li>Fashion and lifestyle collaborators interested in the athlete-entertainer space</li>
               <li>Innovators who understand that the best stories happen at the intersection of different worlds</li>
             </ul>
           </div>
 
-          <p style={{fontSize: '1.5rem', lineHeight: 1.9, marginTop: '60px'}}>
-            The January 24, 2026 fight is the beginning of a two-fight contract, not the ending. It&apos;s a platform for collaboration—
-            telling stories that connect LA to Seoul, boxing to comedy to music, compassion to action.
+          <p style={{fontSize: '1.35rem', lineHeight: 1.9, marginTop: '60px', color: '#b8b2a8'}}>
+            The April 5, 2026 fight is a platform for collaboration — telling stories that connect LA to Seoul, boxing to comedy to music, compassion to action.
           </p>
 
-          <div style={{marginTop: '50px', padding: '40px', background: 'linear-gradient(135deg, rgba(255, 0, 132, 0.1), rgba(0, 217, 255, 0.1))', borderRadius: '20px', border: '2px solid rgba(255, 0, 132, 0.3)', boxShadow: '0 0 40px rgba(255, 0, 132, 0.2), 0 0 80px rgba(0, 217, 255, 0.2)'}}>
-            <p style={{fontSize: '1.8rem', lineHeight: 1.8, textAlign: 'center', fontWeight: 700}}>
-              <span style={{background: 'linear-gradient(90deg, var(--cj-magenta), var(--cj-electric-blue), var(--cj-magenta))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', fontSize: '2rem'}}>Let&apos;s create together</span>
+          <div style={{marginTop: '50px', padding: '40px', background: 'rgba(196, 30, 58, 0.04)', border: '2px solid var(--boxing-crimson)'}}>
+            <p style={{fontSize: '1.6rem', lineHeight: 1.8, textAlign: 'center', fontWeight: 700}}>
+              <span style={{color: 'var(--fight-gold)', fontSize: '1.8rem', fontFamily: "'Oswald', sans-serif", textTransform: 'uppercase' as const, letterSpacing: '0.05em'}}>Let&apos;s create together</span>
             </p>
             <div style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '30px', marginTop: '30px'}}>
               <div style={{textAlign: 'center', padding: '20px'}}>
-                <div style={{fontSize: '3rem', marginBottom: '15px', filter: 'drop-shadow(0 0 10px var(--cj-magenta)'}}>🌐</div>
-                <p style={{fontSize: '1.2rem', fontWeight: 600, color: 'var(--cj-magenta)', lineHeight: 1.6}}>Content that transcends boundaries</p>
+                <div style={{fontSize: '2.5rem', marginBottom: '15px'}}>🌐</div>
+                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--boxing-red)', lineHeight: 1.6}}>Content that transcends boundaries</p>
               </div>
               <div style={{textAlign: 'center', padding: '20px'}}>
-                <div style={{fontSize: '3rem', marginBottom: '15px', filter: 'drop-shadow(0 0 10px var(--cj-electric-blue)'}}>🤝</div>
-                <p style={{fontSize: '1.2rem', fontWeight: 600, color: 'var(--cj-electric-blue)', lineHeight: 1.6}}>Collaborations built on empathy</p>
+                <div style={{fontSize: '2.5rem', marginBottom: '15px'}}>🤝</div>
+                <p style={{fontSize: '1.1rem', fontWeight: 600, color: 'var(--fight-gold)', lineHeight: 1.6}}>Collaborations built on empathy</p>
               </div>
               <div style={{textAlign: 'center', padding: '20px'}}>
-                <div style={{fontSize: '3rem', marginBottom: '15px', filter: 'drop-shadow(0 0 10px var(--cj-orange)'}}>✨</div>
-                <p style={{fontSize: '1.2rem', fontWeight: 600, color: 'var(--cj-orange)', lineHeight: 1.6}}>Stories that open up new possibilities across cultures</p>
+                <div style={{fontSize: '2.5rem', marginBottom: '15px'}}>✨</div>
+                <p style={{fontSize: '1.1rem', fontWeight: 600, color: '#e8e4dc', lineHeight: 1.6}}>Stories that open up new possibilities across cultures</p>
               </div>
             </div>
           </div>
@@ -872,16 +764,20 @@ export default function Home() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="section" style={{position: 'relative', background: 'linear-gradient(135deg, #0a0a0a 0%, #1a0033 50%, #2d0a4d 100%)'}}>
-        <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'url("giobottom.png")', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.25, pointerEvents: 'none'}}></div>
+      <section id="contact" className="section" style={{position: 'relative', background: '#080808'}}>
+        <div style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundImage: 'url("giobottom.png")', backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.2, pointerEvents: 'none'}}></div>
         <div className="container" style={{textAlign: 'center'}}>
           <h2>Giovanni <span className="kdh-purple">Cabrera</span></h2>
 
-          <p style={{fontSize: '1.3rem', fontWeight: 400, opacity: 0.9, lineHeight: 1.8, marginTop: '30px'}}>
-            World #9 Lightweight • Actor • Comedian • Singer • Humanitarian
+          <p style={{fontSize: '1.2rem', fontWeight: 400, opacity: 0.8, lineHeight: 1.8, marginTop: '30px', letterSpacing: '0.05em'}}>
+            World #8 Lightweight • Actor • Comedian • Singer • Humanitarian
           </p>
 
-          <div style={{marginTop: '50px'}}>
+          <div style={{marginTop: '30px'}}>
+            <a href="https://instagram.com/giocabreraboxing" target="_blank" rel="noopener noreferrer" style={{color: 'var(--fight-gold)', textDecoration: 'none', fontSize: '1.1rem', fontFamily: "'Oswald', sans-serif", letterSpacing: '0.1em', textTransform: 'uppercase' as const, borderBottom: '1px solid var(--fight-gold)', paddingBottom: '2px', transition: 'opacity 0.25s ease', opacity: 0.8}}>@giocabreraboxing</a>
+          </div>
+
+          <div style={{marginTop: '40px'}}>
             <a href="mailto:jimmydesmondbrown@gmail.com" className="cta">Start the Conversation</a>
           </div>
         </div>
