@@ -60,42 +60,6 @@ export default function Home() {
   return (
     <>
       <style jsx global>{`
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-archivo), 'Helvetica Neue', Arial, sans-serif;
-            background: #0a0a0a;
-            color: #e8e4dc;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: #C41E3A;
-            z-index: 10000;
-        }
-
-        :root {
-            --boxing-red: #C41E3A;
-            --boxing-crimson: #9B1B30;
-            --boxing-dark-red: #6B0F1A;
-            --fight-gold: #D4A843;
-            --championship-gold: #FFD700;
-            --steel: #5a6068;
-            --charcoal: #1a1a1a;
-            --concrete: #242424;
-        }
-
         .section {
             min-height: 100vh;
             display: flex;
